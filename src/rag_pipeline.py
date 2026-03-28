@@ -1,11 +1,11 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 
 
 def build_vector_store(documents):
 
-    # ✅ Better splitter (handles structure better than CharacterTextSplitter)
+    # ✅ Better splitter (handles structure better)
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=800,
         chunk_overlap=100
@@ -13,10 +13,8 @@ def build_vector_store(documents):
 
     texts = splitter.split_documents(documents)
 
-    # ✅ Optimized embedding model (fast + accurate)
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    # ✅ Use OpenAI embeddings (NO transformers, NO torch issues)
+    embeddings = OpenAIEmbeddings()
 
     # ✅ Build FAISS index
     vector_store = FAISS.from_documents(texts, embeddings)
