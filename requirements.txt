@@ -3,10 +3,8 @@ langchain==0.1.20
 langchain-community==0.0.38
 langchain-core==0.1.52
 langchain-text-splitters==0.0.1
-langchain-openai==0.0.8
-openai==1.14.3
 pydantic==1.10.13
 faiss-cpu
 pypdf
-reportlab
-pillow==9.5.0
+sentence-transformers
+torch
