@@ -1,11 +1,10 @@
-streamlit==1.32.2
+streamlit==1.29.0
 langchain==0.1.20
 langchain-community==0.0.38
 langchain-core==0.1.52
 langchain-text-splitters==0.0.1
-langchain-openai==0.0.8
-openai==1.14.3
 pydantic==1.10.13
-faiss-cpu
-pypdf
-reportlab
+faiss-cpu==1.7.4
+pypdf==3.17.4
+sentence-transformers==2.2.2
+torch==2.1.2
